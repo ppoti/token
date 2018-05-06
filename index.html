@@ -80,14 +80,14 @@ span.n0{background:url(./bjpknum.png) no-repeat; background-position: -320px -19
 	let CountValue = (d,id) => {
 		if(d.preDrawCode[0] == d.preDrawCode[8]){
 			recordCode[id] ++; 
-			$(id + '_next').html(`开1次`)
+			$(`.${id}_next`).html(`开1次`)
 			console.log( `${id}开1次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
 			if (recordCode[id] == 2) {
-				$(id + '_next').html(`开2次`)
+				$(`.${id}_next`).html(`开2次`)
 				console.log(`${id}开2次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
 				window.open("",'_blank')
 				if (recordCode[id] == 3) {
-					$(id + '_next').html(`开3次`)
+					$(`.${id}_next`).html(`开3次`)
 					console.log(`${id}开3次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
 					window.open("",'_blank')
 				}
