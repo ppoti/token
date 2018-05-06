@@ -28,6 +28,7 @@ span.n0{background:url(./bjpknum.png) no-repeat; background-position: -320px -19
 	<div class="cqssc_preDrawIssue"></div>
 	<div class="cqssc_preDrawCode"></div>
 	<div class="cqssc_countdown"></div>
+	<div class="cqssc_next"></div>
 </div>
 <div class="xjssc">
 	<div class="xjssc_lotName"></div>
@@ -35,6 +36,7 @@ span.n0{background:url(./bjpknum.png) no-repeat; background-position: -320px -19
 	<div class="xjssc_preDrawIssue"></div>
 	<div class="xjssc_preDrawCode"></div>
 	<div class="xjssc_countdown"></div>
+	<div class="xjssc_next"></div>
 </div>
 <div class="tjssc">
 	<div class="tjssc_lotName"></div>
@@ -42,6 +44,7 @@ span.n0{background:url(./bjpknum.png) no-repeat; background-position: -320px -19
 	<div class="tjssc_preDrawIssue"></div>
 	<div class="tjssc_preDrawCode"></div>
 	<div class="tjssc_countdown"></div>
+	<div class="tjssc_next"></div>
 </div>
 <script src="./jquery.min.js"></script>
 <script>
@@ -77,13 +80,20 @@ span.n0{background:url(./bjpknum.png) no-repeat; background-position: -320px -19
 	let CountValue = (d,id) => {
 		if(d.preDrawCode[0] == d.preDrawCode[8]){
 			recordCode[id] ++; 
+			$(id + '_next').html(`开1次`)
 			console.log( `${id}开1次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
 			if (recordCode[id] == 2) {
-				recordCode[id] = 0;
+				$(id + '_next').html(`开2次`)
 				console.log(`${id}开2次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
 				window.open("",'_blank')
+				if (recordCode[id] == 3) {
+					$(id + '_next').html(`开3次`)
+					console.log(`${id}开3次,${d.preDrawCode[0]}+${d.preDrawCode[8]}`)
+					window.open("",'_blank')
+				}
 			}
 		}else{
+			$(id + '_next').html(`开0次`)
 			recordCode[id] = 0;
 		}
  	}
